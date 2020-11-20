@@ -1,4 +1,4 @@
-package aoc.utils
+package aoc.days
 
 class Day01(input: List<String>) {
 
