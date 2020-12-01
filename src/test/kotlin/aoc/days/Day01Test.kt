@@ -9,8 +9,14 @@ import org.junit.jupiter.api.Test
 
 internal class Day01Test {
 
-    val inputs = listOf("")
-
+    val inputs = """
+        1721
+        979
+        366
+        299
+        675
+        1456
+    """.trimIndent().split("\n")
     @Nested
     @DisplayName("Part 1")
     inner class Part1 {
@@ -20,14 +26,14 @@ internal class Day01Test {
             val answer = Day01(inputs).solvePart1()
 
             // Then
-            assertThat(answer)
+            assertThat(answer).isEqualTo(514579)
         }
 
         @Test
         fun `Actual answer`() {
             // When
-            val answer = Day01(InputReader.readInputAsList(("day_01.txt"))).solvePart1()
-
+            val answer = Day01(InputReader.readInputAsList(("2020/day01.txt"))).solvePart1()
+            println("part 1: $answer")
             // Then
             assertThat(answer)
         }
@@ -42,13 +48,14 @@ internal class Day01Test {
             val answer = Day01(inputs).solvePart2()
 
             // Then
-            assertThat(answer)
+            assertThat(answer).isEqualTo(241861950)
         }
 
         @Test
         fun `Actual answer`() {
             // When
-            val answer = Day01(InputReader.readInputAsList(("day_01.txt"))).solvePart2()
+            val answer = Day01(InputReader.readInputAsList(("2020/day01.txt"))).solvePart2()
+            println("part 2: $answer")
 
             // Then
             assertThat(answer)

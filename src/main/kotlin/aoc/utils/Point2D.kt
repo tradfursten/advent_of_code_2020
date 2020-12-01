@@ -13,6 +13,9 @@ data class Point2D(val x: Int, val y: Int) {
     fun neighbors():List<Point2D> = listOf(up(), right(), down(), left())
 
 
+    companion object {
+        val ORIGIN = Point2D(0, 0)
+    }
 
 }
 
