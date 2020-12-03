@@ -3,14 +3,12 @@ package aoc.days
 class Day02(val input: List<String>) {
 
     fun solvePart1(): Int {
-        val k = input.map { l ->
+        return input.map { l ->
             parseLine(l)
-        }
-        val p = k.filter { pw ->
-                    val f = pw.third.filter { it == pw.second }.length
-                    f >= pw.first.first && f <= pw.first.last
-                }
-        return p.size
+        }.filter { pw ->
+            val f = pw.third.filter { it == pw.second }.length
+            f >= pw.first.first && f <= pw.first.last
+        }.size
     }
 
     private fun parseLine(line: String): Triple<IntRange, Char, String> {
