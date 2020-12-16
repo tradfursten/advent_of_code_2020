@@ -1,9 +1,9 @@
 package aoc.days
 
-class Day04 {
+class Day04(input: String) {
     private val passport = mutableListOf<Passport>()
 
-    constructor(input: String) {
+    init {
         val l = input.split("\n")
         var currentPassport = ""
         for (i in l.indices) {

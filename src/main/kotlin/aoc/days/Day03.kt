@@ -3,22 +3,16 @@ package aoc.days
 import java.io.Serializable
 import java.lang.IllegalStateException
 
-class Day03 {
+class Day03(val input: List<String>) {
 
-    val input: List<String>
-    val forest: List<CircularList<Serializable>>
-
-    constructor(input: List<String>) {
-        this.input = input
-        this.forest = input.map {
-            it.map { c ->
-                when (c) {
-                    '.' -> AREA.OPEN
-                    '#' -> AREA.TREES
-                    else -> IllegalStateException("Unknown area type")
-                }
-            }.circular()
-        }
+    private val forest = input.map {
+        it.map { c ->
+            when (c) {
+                '.' -> AREA.OPEN
+                '#' -> AREA.TREES
+                else -> IllegalStateException("Unknown area type")
+            }
+        }.circular()
     }
 
     fun solvePart1(): Int {

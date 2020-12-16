@@ -2,13 +2,11 @@ package aoc.days
 
 import java.util.ArrayDeque as ArrayDeque
 
-class Day07 {
-    val inputs: List<String>
+class Day07(val inputs: List<String>) {
     private val rules: MutableMap<String, MutableList<Pair<String, Int>>> = mutableMapOf()
     private val rules2: MutableMap<String, MutableList<Pair<String, Int>>> = mutableMapOf()
 
-    constructor(inputs: List<String>) {
-        this.inputs = inputs
+    init {
         inputs.forEach { line ->
             val parts = line.split(" ")
             val current = "${parts[0]} ${parts[1]}"

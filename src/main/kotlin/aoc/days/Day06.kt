@@ -1,11 +1,9 @@
 package aoc.days
 
-class Day06 {
-    val inputs: List<String>
+class Day06(val inputs: List<String>) {
     private val groups: List<List<String>>
 
-    constructor(inputs: List<String>) {
-        this.inputs = inputs
+    init {
         groups = mutableListOf()
         var currentCroup = mutableListOf<String>()
         for(i in inputs) {

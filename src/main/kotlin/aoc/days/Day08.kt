@@ -2,18 +2,11 @@ package aoc.days
 
 import java.lang.IllegalStateException
 
-class Day08 {
-    private val program: List<Instruction>
-    val inputs: List<String>
+class Day08(val inputs: List<String>) {
+    private val program = inputs.map { Instruction(it) }.toList()
     var accumulator = 0
     var pointer = 0
 
-    constructor(inputs: List<String>) {
-        this.inputs = inputs
-        program = inputs.map {
-            Instruction(it)
-        }.toList()
-    }
 
     fun solvePart1():Int {
         while(pointer < program.size && !program[pointer].visited) {

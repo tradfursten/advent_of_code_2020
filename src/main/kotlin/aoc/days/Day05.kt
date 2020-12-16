@@ -1,11 +1,9 @@
 package aoc.days
 
-class Day05 {
+class Day05(val inputs: List<String>) {
     private var seats: List<Int>
-    val inputs: List<String>
 
-    constructor(inputs: List<String>) {
-        this.inputs = inputs
+    init {
         this.seats = inputs.map { line ->
             var rStart = 0
             var rEnd = 127

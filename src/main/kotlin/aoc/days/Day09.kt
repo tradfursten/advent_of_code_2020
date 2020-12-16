@@ -2,14 +2,8 @@ package aoc.days
 
 import java.lang.IllegalStateException
 
-class Day09 {
-    private val xmas: List<Long>
-    val inputs: List<String>
-
-    constructor(inputs: List<String>) {
-        this.inputs = inputs
-        xmas = inputs.map { it.toLong() }.toList()
-    }
+class Day09(val inputs: List<String>) {
+    private val xmas: List<Long> = inputs.map { it.toLong() }.toList()
 
     fun solvePart1(preamble: Int):Long {
         for(i in preamble until xmas.size) {
