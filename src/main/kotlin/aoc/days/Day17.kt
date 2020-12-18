@@ -118,6 +118,38 @@ class Day17 {
         //print()
     }
 
+    fun step2b(step: Int) {
+        println("Do step $step")
+        cells.filter { it.value.first == ACTIVE }
+                .map { it.key.neighbours() }
+                .flatten()
+                .distinct()
+                .forEach { p ->
+                    val c = cells.getOrDefault(p, INACTIVE to INACTIVE)
+                    when (c.first) {
+                        ACTIVE -> {
+                            val count = cells.filter { it.key in p.neighbours() }
+                                    .filter { it.value.first == ACTIVE }.count()
+                            if (!(count == 2 || count == 3)) {
+                                cells[p] = c.first to INACTIVE
+                            }
+                        }
+                        INACTIVE -> {
+                            val count = cells.filter { it.key in p.neighbours() }
+                                    .filter { it.value.first == ACTIVE }.count()
+                            if (count == 3) {
+                                cells[p] = c.first to ACTIVE
+                            }
+                        }
+                    }
+                }
+        cells.forEach {
+            if(it.value.first != it.value.second) {
+                cells[it.key] = it.value.second to it.value.second
+            }
+        }
+    }
+
     fun solvePart1(steps: Int):Int {
         //print()
         for (i in 1..steps) {
